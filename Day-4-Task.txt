@@ -1,0 +1,216 @@
+Day-4-Task
+
+1.Do the below programs in anonymous function & IIFE:
+
+a.Print odd numbers in an array:
+Ans:
+(function (arr)
+{
+    let odd=[];
+    for(let i in arr)
+    {
+        if(arr[i]%2!=0){
+            odd.push(arr[i]);
+        }
+    }
+    console.log(odd);
+})([1,2,3,4,5,6,7,8,9,10]);
+
+//OUTPUT: [1, 3, 5, 7, 9]
+
+
+b.Convert all the strings to title caps in a string array:
+Ans:
+  let toTitleCase=function(str) {
+    str = str.toLowerCase().split(' ');
+    for (var i = 0; i < str.length; i++) {
+      str[i] = str[i].charAt(0).toUpperCase() + str[i].slice(1);
+    }
+    return str.join(' ');
+  }
+  console.log(toTitleCase("zen class B31 week day batch"));
+
+  //OUTPUT: Zen Class B31 Week Day Batch
+
+
+c.Sum of all numbers in an array:
+Ans:
+let arraySum=function(arr){
+    var total=0;
+    for(var i in arr) { 
+        total += arr[i];
+    }
+    return total;
+}
+var num = [10,20,40,20,10]; 
+var resultSum= arraySum(num); 
+console.log(resultSum);
+//OUTPUT:100
+
+d.Return all the prime numbers in an array:
+Ans:
+const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
+(function (arr) {
+  function isPrime(num) {
+    if (num < 2) {
+      return false;
+    }
+    
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+      if (num % i === 0) {
+        return false;
+      }
+    }
+    
+    return true;
+  }
+  
+  const result = arr.filter(function (num) {
+    return isPrime(num);
+  });
+  
+  console.log(result);
+})
+(arr);
+//OUTPUT:2,3,5,7
+
+
+e.Return all the palindromes in an array:
+Ans:
+const arr = ['carecar', 1344, 12321, 'did', 'cannot'];
+const isPalindrome = el => {
+   const str = String(el);
+   let i = 0;
+   let j = str.length - 1;
+   while(i < j) {
+      if(str[i] === str[j]) {
+         i++;
+         j--;
+      }
+      else {
+         return false;
+      }
+   }
+   return true;
+};
+const findPalindrome = arr => {
+   return arr.filter(el => isPalindrome(el));
+};
+console.log(findPalindrome(arr));
+//OUTPUT: [12321, 'did']
+
+f.Return median of two sorted arrays of the same size:
+Ans:
+const findMedian = function(arr1, arr2) {
+  const mergedArray = arr1.concat(arr2);
+  mergedArray.sort((a, b) => a - b);
+  
+  const length = mergedArray.length;
+  const mid = Math.floor(length / 2);
+  
+  if (length % 2 === 0) {
+    return (mergedArray[mid - 1] + mergedArray[mid]) / 2;
+  } else {
+    return mergedArray[mid];
+  }
+};
+console.log(findMedian([1, 3, 5], [2, 4, 6]));
+OUTPUT:
+
+g.Remove duplicates from an array:
+Ans:
+let chars = ['A', 'B', 'A', 'C', 'B'];
+let uniqueChars = [];
+chars.forEach((c) => {
+    if (!uniqueChars.includes(c)) {
+        uniqueChars.push(c);
+    }
+});
+console.log(uniqueChars);
+ //OUTPUT:['A', 'B', 'C']
+
+h. Rotate an array by k times:
+Ans:
+const rotateArray = function(arr, k) {
+  const rotations = k % arr.length;
+  const rotatedArray = arr.slice(rotations).concat(arr.slice(0, rotations));
+  
+  return rotatedArray;
+};
+console.log(rotateArray([1, 2, 3, 4, 5], 2));
+
+
+2.Do the below programs in arrow functions:
+
+a.Print odd numbers in an array:
+Ans
+const printOddNumbers = (arr) => {
+  arr.forEach((num) => {
+    if (num % 2 !== 0) {
+      console.log(num);
+    }
+  });
+};
+
+printOddNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+//OUTPUT:1,3,5,7,9
+
+
+b. Convert all the strings to title caps in a string array:
+Ans:
+const convertToTitleCaps = (arr) => {
+  return arr.map((str) => {
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  });
+};
+console.log(convertToTitleCaps(["hello", "world"]));
+//OUTPUT:HELLO WORLD
+
+
+c. Sum of all numbers in an array:
+
+const sumNumbers = (arr) => {
+  return arr.reduce((sum, num) => sum + num, 0);
+};
+console.log(sumNumbers([1, 2, 3, 4, 5]));
+//OUTPUT:15
+
+d. Return all the prime numbers in an array:
+Ans:
+const isPrime = (num) => {
+  if (num < 2) {
+    return false;
+  }
+  
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) {
+      return false;
+    }
+  }
+  
+  return true;
+};
+
+const getPrimeNumbers = (arr) => {
+  return arr.filter((num) => isPrime(num));
+};
+console.log(getPrimeNumbers([1, 2, 3, 4, 5, 6, 7, 8, 9]));
+//OUTPUT:2,3,5,7
+
+e. Return all the palindromes in an array:
+Ans:
+const isPalindrome = (str) => {
+  const reversedStr = str.split("").reverse().join("");
+  return str === reversedStr;
+};
+
+const getPalindromes = (arr) => {
+  return arr.filter((str) => isPalindrome(str));
+};
+console.log(getPalindromes(["madam", "hello", "racecar", "world"]));
+//OUTPUT:'madam','world'
+
+
+
+  
